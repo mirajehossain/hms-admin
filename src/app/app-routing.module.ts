@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AppComponent} from './app.component';
 import {AuthGuard} from './core/auth.guard';
+import {BaseComponent} from './views/theme/base/base.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: AppComponent,
+    component: BaseComponent,
     canActivate: [AuthGuard],
     children: [
       {
@@ -27,6 +28,7 @@ const routes: Routes = [
     ]
   }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -1,1 +1,15 @@
-<p>aside works!</p>
+<div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside">
+  <!-- begin:: Aside Menu -->
+  <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
+    <div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500">
+      <ul class="kt-menu__nav ">
+        <li class="kt-menu__item " routerLinkActive="kt-menu__item--active" aria-haspopup="true" title="dashboard"><a [routerLink]="['/dashboard']" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-protection"></i><span class="kt-menu__link-text">Dashboard</span></a></li>
+        <li class="kt-menu__item " routerLinkActive="kt-menu__item--active" aria-haspopup="true" title="Users"  ><a [routerLink]="['/user']" class="kt-menu__link "><i class="fa fa-users kt-menu__link-icon"></i><span class="kt-menu__link-text">Users</span></a></li>
+        <li class="kt-menu__item " routerLinkActive="kt-menu__item--active" aria-haspopup="true" title="Courses"><a [routerLink]="['/courses']" class="kt-menu__link "><i class="fa fa-address-book kt-menu__link-icon"></i><span class="kt-menu__link-text">Courses</span></a></li>
+        <li class="kt-menu__item " routerLinkActive="kt-menu__item--active" aria-haspopup="true" title="Badges" ><a [routerLink]="['/badge']" routerLinkActive="router-link-active"  class="kt-menu__link "><i class="fa fa-certificate kt-menu__link-icon"></i><span class="kt-menu__link-text">Badge</span></a></li>
+        <li class="kt-menu__item " routerLinkActive="kt-menu__item--active" aria-haspopup="true" title="Logout"><a  class="kt-menu__link "><i class=" fa fa-sign-out-alt kt-menu__link-icon"></i><span class="kt-menu__link-text">Logout</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- end:: Aside Menu -->
+</div>

@@ -3,13 +3,18 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AsideComponent } from './aside/aside.component';
+import {RouterModule} from '@angular/router';
+import {BaseComponent} from './base/base.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, AsideComponent],
+  declarations: [BaseComponent, HeaderComponent, FooterComponent, AsideComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    FontAwesomeModule
   ]
 })
 export class ThemeModule { }

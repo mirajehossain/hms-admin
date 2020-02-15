@@ -1,11 +1,11 @@
 <!-- begin::Body -->
-<div  class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading"  >
+<div class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading"  >
 
 
 <!-- begin:: Page -->
 <div class="kt-grid kt-grid--ver kt-grid--root">
   <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v4 kt-login--signin" id="kt_login">
-    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(/assets/images/bg-2.jpg);">
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url('/assets/images/bg-2.jpg');">
       <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
         <div class="kt-login__container">
           <div class="kt-login__logo">
@@ -17,26 +17,35 @@
             <div class="kt-login__head">
               <h3 class="kt-login__title">Sign In To Admin</h3>
             </div>
-            <form class="kt-form" action="">
+            <div class="text-center" *ngIf="hasError">
+              <strong style="color: red">{{errMessage}}</strong>
+            </div>
+            <form class="kt-form" [formGroup]="loginForm">
               <div class="input-group">
-                <input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
+                <input class="form-control" type="text" placeholder="Email" name="email" formControlName="email" required="true">
+              </div>
+              <div *ngIf="isControlHasError('email','required')">
+                <strong style="color: red">Email is required</strong>
               </div>
               <div class="input-group">
-                <input class="form-control" type="password" placeholder="Password" name="password">
+                <input class="form-control" type="password" placeholder="Password" name="password" formControlName="password">
+              </div>
+              <div *ngIf="isControlHasError('password','required')">
+                <strong style="color: red">Password is required</strong>
               </div>
               <div class="row kt-login__extra">
-                <div class="col">
-                  <label class="kt-checkbox">
-                    <input type="checkbox" name="remember"> Remember me
-                    <span></span>
-                  </label>
-                </div>
+<!--                <div class="col">-->
+<!--                  <label class="kt-checkbox">-->
+<!--                    <input type="checkbox" name="remember"> Remember me-->
+<!--                    <span></span>-->
+<!--                  </label>-->
+<!--                </div>-->
                 <div class="col kt-align-right">
                   <a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Forget Password ?</a>
                 </div>
               </div>
               <div class="kt-login__actions">
-                <button id="kt_login_signin_submit" class="btn btn-brand btn-pill kt-login__btn-primary">Sign In</button>
+                <button (click)="login()" class="btn btn-brand btn-pill kt-login__btn-primary">Sign In</button>
               </div>
             </form>
           </div>
