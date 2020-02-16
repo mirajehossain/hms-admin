@@ -19,10 +19,14 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('src/app/views/pages/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
-      // {
-      //   path: 'user',
-      //   loadChildren: () => import('src/app/views/pages/user/user.module').then(m => m.UserModule)
-      // },
+      {
+        path: 'doctors',
+        loadChildren: () => import('src/app/views/pages/doctors/doctors.module').then(m => m.DoctorsModule)
+      },
+      {
+        path: 'patients',
+        loadChildren: () => import('src/app/views/pages/patients/patients.module').then(m => m.PatientsModule)
+      },
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       {path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
     ]
