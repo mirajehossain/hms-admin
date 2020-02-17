@@ -8,6 +8,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { ReportsComponent } from './reports/reports.component';
 import { AddComponent } from './add/add.component';
 import {ThemeModule} from '../../theme/theme.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -19,7 +20,7 @@ import {ThemeModule} from '../../theme/theme.module';
       {
         path: '',
         component: DoctorsComponent,
-        children:  [
+        children: [
           {
             path: 'list',
             component: ListsComponent,
@@ -42,6 +43,7 @@ import {ThemeModule} from '../../theme/theme.module';
       },
     ]),
     ThemeModule,
+    ReactiveFormsModule,
   ]
 })
 export class DoctorsModule { }

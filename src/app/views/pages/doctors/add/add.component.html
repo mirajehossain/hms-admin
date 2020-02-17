@@ -3,41 +3,53 @@
       New Doctor Form
 <!--      <small class="text-muted">With faded secondary text</small>-->
     </h3>
-  <div class="">
-    <form>
+  <div class="row justify-content-center">
+    <form class="col-xl-8 col-lg-6 col-md-8 col-sm-10" [formGroup]="doctorForm">
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputEmail4">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          <label >Name</label>
+          <input type="text" class="form-control" name="name" formControlName="name" placeholder="Name" >
+          <div *ngIf="isControlHasError('name','required')">
+            <strong style="color: red">Name is required</strong>
+          </div>
         </div>
         <div class="form-group col-md-6">
-          <label for="inputPassword4">Password</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+          <label >Email</label>
+          <input type="email" class="form-control" name="email" formControlName="email" placeholder="Email">
+          <div *ngIf="isControlHasError('email','required')">
+            <strong style="color: red">Email is required</strong>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Mobile</label>
+          <input type="text" class="form-control" name="mobile" formControlName="mobile" placeholder="Mobile">
+          <div *ngIf="isControlHasError('mobile','required')">
+            <strong style="color: red">Mobile is required</strong>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label >Password</label>
+          <input type="password" class="form-control" name="password" formControlName="password" placeholder="Password">
+          <div *ngIf="isControlHasError('password','required')">
+            <strong style="color: red">password is required</strong>
+          </div>
         </div>
       </div>
       <div class="form-group">
         <label for="inputAddress">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-      </div>
-      <div class="form-group">
-        <label for="inputAddress2">Address 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        <input type="text" class="form-control" id="inputAddress" name="address" formControlName="address" placeholder="1234 Main St">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputCity">City</label>
-          <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="form-group col-md-4">
-          <label for="inputState">State</label>
-          <select id="inputState" class="form-control">
-            <option selected>Choose...</option>
-            <option>...</option>
+          <label for="inputState">Blood Group</label>
+          <select id="inputState" formControlName="bloodGroup" class="form-control">
+            <option *ngFor="let blood of ['A+', 'A-']" [value]="blood">{{blood}}</option>
           </select>
         </div>
-        <div class="form-group col-md-2">
-          <label for="inputZip">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
+        <div class="form-group col-md-6">
+          <label >Designation</label>
+          <input type="text" class="form-control" name="designation" formControlName="designation" placeholder="Designation">
         </div>
       </div>
       <div class="form-group">
@@ -48,7 +60,7 @@
           </label>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Sign in</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!doctorForm.valid" (click)="createDoctor(doctorForm.value)">Create</button>
     </form>
   </div>
 
