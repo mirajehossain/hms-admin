@@ -1,1 +1,72 @@
-<p>add works!</p>
+<div>
+  <h3 class="text-center ">
+    New Doctor Form
+    <!--      <small class="text-muted">With faded secondary text</small>-->
+  </h3>
+  <div class="row justify-content-center">
+    <form class="col-xl-8 col-lg-6 col-md-8 col-sm-10" [formGroup]="patientForm">
+      <div class="col-md-12">
+        <div class="text-center" *ngIf="hasError">
+          <strong style="color: red">{{errMessage}}</strong>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label >Name</label>
+          <input type="text" class="form-control" name="name" formControlName="name" placeholder="Name" >
+          <div *ngIf="isControlHasError('name','required')">
+            <strong style="color: red">Name is required</strong>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label >Email</label>
+          <input type="email" class="form-control" name="email" formControlName="email" placeholder="Email">
+          <div *ngIf="isControlHasError('email','required')">
+            <strong style="color: red">Email is required</strong>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Mobile</label>
+          <input type="text" class="form-control" name="mobile" formControlName="mobile" placeholder="Mobile">
+          <div *ngIf="isControlHasError('mobile','required')">
+            <strong style="color: red">Mobile is required</strong>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label >Password</label>
+          <input type="password" class="form-control" name="password" formControlName="password" placeholder="Password">
+          <div *ngIf="isControlHasError('password','required')">
+            <strong style="color: red">password is required</strong>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" name="address" formControlName="address" placeholder="1234 Main St">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputState">Blood Group</label>
+          <select id="inputState" formControlName="bloodGroup" class="form-control">
+            <option *ngFor="let blood of ['A+', 'A-','B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']" [value]="blood">{{blood}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label >Designation</label>
+          <input type="text" class="form-control" name="designation" formControlName="designation" placeholder="Designation">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="isDonor" formControlName="isDonor">
+          <label class="form-check-label">
+            Is Donor?
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!patientForm.valid" (click)="createPatient(patientForm.value)">Create</button>
+    </form>
+  </div>
+
+</div>

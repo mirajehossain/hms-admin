@@ -14,7 +14,8 @@ import { PatientSubheaderComponent } from './patient-subheader/patient-subheader
 @NgModule({
   declarations: [BaseComponent, HeaderComponent, FooterComponent, AsideComponent, DoctorSubheaderComponent, PatientSubheaderComponent],
   exports: [
-    DoctorSubheaderComponent
+    DoctorSubheaderComponent,
+    PatientSubheaderComponent
   ],
   imports: [
     CommonModule,

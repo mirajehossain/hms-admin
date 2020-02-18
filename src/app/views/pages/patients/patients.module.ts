@@ -7,6 +7,8 @@ import { PatientComponent } from './patient/patient.component';
 import { ReportsComponent } from './reports/reports.component';
 import {RouterModule} from '@angular/router';
 import {AddComponent} from './add/add.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ThemeModule} from '../../theme/theme.module';
 
 
 @NgModule({
@@ -23,7 +25,7 @@ import {AddComponent} from './add/add.component';
         component: AddComponent,
       },
       {
-        path: '/:patientId',
+        path: 'details/:patientId',
         component: PatientComponent,
       },
       {
@@ -33,6 +35,8 @@ import {AddComponent} from './add/add.component';
       {path: '', redirectTo: 'list', pathMatch: 'full'},
       {path: '**', redirectTo: 'list', pathMatch: 'full'}
     ]),
+    ReactiveFormsModule,
+    ThemeModule,
   ]
 })
 export class PatientsModule { }

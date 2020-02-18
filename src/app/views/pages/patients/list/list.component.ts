@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {PatientService} from '../../../../core/services/patient.service';
+import {PatientsModel} from '../patients.model';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  public patients: PatientsModel[];
+  public hasError = false;
+  public errMessage: string;
+
+  constructor(
+    private patientApiService: PatientService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
+    this.getDoctors();
+  }
+
+  getDoctors() {
+    this.patientApiService.GetPatients()
+      .subscribe(response => {
+        console.log(response);
+        if (response.success) {
+          this.patients = response.data;
+        }
+      }, error => {
+        this.hasError = true;
+        this.errMessage = error;
+      });
   }
 
 }
