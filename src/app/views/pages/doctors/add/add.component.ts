@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {DoctorService} from '../../../../core/services/doctor.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -9,9 +11,13 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class AddComponent implements OnInit {
 
   public doctorForm: FormGroup;
+  public hasError = false;
+  public errMessage = '';
 
   constructor(
     private fb: FormBuilder,
+    private doctorApiService: DoctorService,
+    private router: Router,
 
   ) { }
 
@@ -20,9 +26,20 @@ export class AddComponent implements OnInit {
   }
 
   public createDoctor(data) {
-    console.log(data);
+    this.doctorApiService.CreateDoctor(data)
+      .subscribe(response => {
+        if (response.success) {
+          this.router.navigate(['/doctors/list']);
+          this.doctorForm.reset();
+        } else {
+          this.hasError = true;
+          this.errMessage = response.message;
+        }
+      }, error => {
+        this.hasError = true;
+        this.errMessage = error;
+      });
   }
-
 
   public initDoctorForm() {
     this.doctorForm = this.fb.group({
@@ -51,6 +68,8 @@ export class AddComponent implements OnInit {
       ])],
 
       designation: ['', Validators.compose([
+      ])],
+      isDonor: ['', Validators.compose([
       ])]
 
     });

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  localhost: 'http://localhost:8000/api/',
-  prodHost: 'https://hms.mirajehossain.com/api/'
+  localhost: 'http://localhost:8000/api',
+  prodHost: 'https://hms.mirajehossain.com/api'
 };
 
 /*

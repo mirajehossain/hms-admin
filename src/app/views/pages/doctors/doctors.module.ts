@@ -9,6 +9,9 @@ import { ReportsComponent } from './reports/reports.component';
 import { AddComponent } from './add/add.component';
 import {ThemeModule} from '../../theme/theme.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TokenInterceptorService} from '../../../core/services/token-interceptor.service';
+import {DoctorService} from '../../../core/services/doctor.service';
 
 
 
@@ -30,11 +33,11 @@ import {ReactiveFormsModule} from '@angular/forms';
             component: AddComponent,
           },
           {
-            path: '/:doctorId',
+            path: 'details/:doctorId',
             component: DoctorComponent,
           },
           {
-            path: '/:doctorId',
+            path: 'update/:doctorId',
             component: UpdateComponent,
           },
           {path: '', redirectTo: 'list', pathMatch: 'full'},
@@ -44,6 +47,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     ]),
     ThemeModule,
     ReactiveFormsModule,
+  ],
+  providers: [
+
   ]
 })
 export class DoctorsModule { }

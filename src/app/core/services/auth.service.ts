@@ -16,7 +16,7 @@ export class AuthService {
   ) { }
 
   public Login(user: LoginModel): Observable<any> {
-    const endPoint = 'auth/login';
+    const endPoint = '/auth/login';
     const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint ;
     console.log(url);
     return this.http.post<LoginModel>(url, user)

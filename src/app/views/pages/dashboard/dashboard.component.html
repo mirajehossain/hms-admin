@@ -1,46 +1,82 @@
 <div class="row kt-content">
-  <div class="col-xs-12 col-md-6 col-lg-3">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Total Doctors</h5>
-        <h6 class="card-subtitle mb-2 text-muted">300</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+  <div class="col-xs-12 col-md-6 col-lg-6">
+    <ngx-charts-bar-horizontal
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="single"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)">
+    </ngx-charts-bar-horizontal>
       </div>
-    </div>
-  </div>
-  <div class="col-xs-12 col-md-6 col-lg-3">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Total Patients</h5>
-        <h6 class="card-subtitle mb-2 text-muted">5000</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+  <div class="col-xs-12 col-md-6 col-lg-6">
+    <ngx-charts-pie-chart
+      [view]="view1"
+      [scheme]="colorScheme1"
+      [results]="single1"
+      [gradient]="gradient1"
+      [legend]="showLegend1"
+      [legendPosition]="legendPosition1"
+      [labels]="showLabels1"
+      [doughnut]="isDoughnut1"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)"
+    >
+    </ngx-charts-pie-chart>
       </div>
-    </div>
-  </div>
-  <div class="col-xs-12 col-md-6 col-lg-3">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Daily Consult</h5>
-        <h6 class="card-subtitle mb-2 text-muted">500 patients</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-12 col-md-6 col-lg-3">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Blood Donors</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
-    </div>
-    </div>
+
+
+<!--  <div class="col-xs-12 col-md-6 col-lg-3">-->
+<!--    <div class="card" style="width: 18rem;">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">Total Doctors</h5>-->
+<!--        <h6 class="card-subtitle mb-2 text-muted">300</h6>-->
+<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--        <a href="#" class="card-link">Card link</a>-->
+<!--        <a href="#" class="card-link">Another link</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col-xs-12 col-md-6 col-lg-3">-->
+<!--    <div class="card" style="width: 18rem;">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">Total Patients</h5>-->
+<!--        <h6 class="card-subtitle mb-2 text-muted">5000</h6>-->
+<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--        <a href="#" class="card-link">Card link</a>-->
+<!--        <a href="#" class="card-link">Another link</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col-xs-12 col-md-6 col-lg-3">-->
+<!--    <div class="card" style="width: 18rem;">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">Daily Consult</h5>-->
+<!--        <h6 class="card-subtitle mb-2 text-muted">500 patients</h6>-->
+<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--        <a href="#" class="card-link">Card link</a>-->
+<!--        <a href="#" class="card-link">Another link</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col-xs-12 col-md-6 col-lg-3">-->
+<!--    <div class="card" style="width: 18rem;">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">Blood Donors</h5>-->
+<!--        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--        <a href="#" class="card-link">Card link</a>-->
+<!--        <a href="#" class="card-link">Another link</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    </div>-->
 </div>

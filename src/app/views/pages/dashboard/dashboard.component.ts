@@ -1,4 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+export let single = [
+  {
+    name: 'Saturday',
+    value: 8940000
+  },
+  {
+    name: 'Sunday',
+    value: 5000000
+  },
+  {
+    name: 'Monday',
+    value: 7200000
+  }
+];
+export let single1 = [
+  {
+    name: 'Doctor',
+    value: 8940000
+  },
+  {
+    name: 'Patient',
+    value: 5000000
+  },
+  {
+    name: 'Serve Patient',
+    value: 7200000
+  },
+];
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +35,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  single: any[];
+  view: any[] = [500, 300];
+
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = false;
+  showXAxisLabel = true;
+  yAxisLabel = 'Last 3 days';
+  showYAxisLabel = true;
+  xAxisLabel = 'Patient serve';
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+
+// pie chart
+  single1: any[];
+  view1: any[] = [500, 300];
+
+  // options
+  gradient1 = true;
+  showLegend1 = true;
+  showLabels1 = true;
+  isDoughnut1 = false;
+  legendPosition1 = 'below';
+
+  colorScheme1 = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+
+
+  constructor() {
+    Object.assign(this, { single });
+    Object.assign(this, { single1 });
+  }
 
   ngOnInit() {
   }
 
+
+  onSelect(data): void {
+    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+  }
+
+  onActivate(data): void {
+    console.log('Activate', JSON.parse(JSON.stringify(data)));
+  }
+
+  onDeactivate(data): void {
+    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
 }

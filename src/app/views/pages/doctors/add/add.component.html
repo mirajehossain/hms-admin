@@ -5,6 +5,11 @@
     </h3>
   <div class="row justify-content-center">
     <form class="col-xl-8 col-lg-6 col-md-8 col-sm-10" [formGroup]="doctorForm">
+      <div class="col-md-12">
+        <div class="text-center" *ngIf="hasError">
+          <strong style="color: red">{{errMessage}}</strong>
+        </div>
+      </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label >Name</label>
@@ -44,7 +49,7 @@
         <div class="form-group col-md-6">
           <label for="inputState">Blood Group</label>
           <select id="inputState" formControlName="bloodGroup" class="form-control">
-            <option *ngFor="let blood of ['A+', 'A-']" [value]="blood">{{blood}}</option>
+            <option *ngFor="let blood of ['A+', 'A-','B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']" [value]="blood">{{blood}}</option>
           </select>
         </div>
         <div class="form-group col-md-6">
@@ -54,9 +59,9 @@
       </div>
       <div class="form-group">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Check me out
+          <input class="form-check-input" type="checkbox" name="isDonor" formControlName="isDonor">
+          <label class="form-check-label">
+            Is Donor?
           </label>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import {RouterModule} from '@angular/router';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 
 
@@ -9,6 +10,7 @@ import {RouterModule} from '@angular/router';
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
+    NgxChartsModule,
     RouterModule.forChild([
       {
         path: '',
