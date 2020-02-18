@@ -17,23 +17,29 @@ import {ThemeModule} from '../../theme/theme.module';
     CommonModule,
     RouterModule.forChild([
       {
-        path: 'list',
-        component: ListComponent,
+        path: '',
+        component: PatientsComponent,
+        children: [
+          {
+            path: 'list',
+            component: ListComponent,
+          },
+          {
+            path: 'add',
+            component: AddComponent,
+          },
+          {
+            path: 'details/:patientId',
+            component: PatientComponent,
+          },
+          {
+            path: 'update/:patientId',
+            component: UpdateComponent,
+          },
+          {path: '', redirectTo: 'list', pathMatch: 'full'},
+          {path: '**', redirectTo: 'list', pathMatch: 'full'}
+        ],
       },
-      {
-        path: 'add',
-        component: AddComponent,
-      },
-      {
-        path: 'details/:patientId',
-        component: PatientComponent,
-      },
-      {
-        path: '/:patientId',
-        component: UpdateComponent,
-      },
-      {path: '', redirectTo: 'list', pathMatch: 'full'},
-      {path: '**', redirectTo: 'list', pathMatch: 'full'}
     ]),
     ReactiveFormsModule,
     ThemeModule,

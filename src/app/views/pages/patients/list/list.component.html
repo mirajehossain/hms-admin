@@ -4,7 +4,7 @@
       <img class="mt-2 card-img-top rounded-circle doctor-image-class" src="/assets/images/doctor.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{patient.name}}</h5>
-        <p class="card-text">{{patient.designation || 'No description/designation available'}}</p>
+        <p class="card-text">{{patient.designation || 'No designation available'}}</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Address: {{patient.address || 'No address provided'}}</li>
@@ -12,7 +12,7 @@
         <li class="list-group-item">{{patient.email}}</li>
       </ul>
       <div class="card-body">
-        <a [routerLink]="'patients/details/'+patient._id" class="card-link">Details</a>
+        <a [routerLink]="'/patients/details/'+patient._id" class="card-link">Details</a>
         <a href="#" class="card-link">Another link</a>
       </div>
     </div>
