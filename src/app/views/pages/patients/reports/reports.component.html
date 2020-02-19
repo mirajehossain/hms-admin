@@ -1,1 +1,36 @@
-<p>reports works!</p>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-lg-8">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Type</th>
+        <th scope="col">Symptoms</th>
+        <th scope="col">Advise</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let report of patientReports">
+        <td>{{report.date | date: 'dd MMM, yyyy'}}</td>
+        <td>{{report.historyType}}</td>
+        <td>{{report.symptoms}}</td>
+        <td>{{report.advise}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-12 col-md-6 col-lg-4">
+    <div class="card" style="width: 18rem;">
+      <img class="mt-2 card-img-top rounded-circle doctor-image-class" src="/assets/images/patient.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{patient.name}}</h5>
+        <p class="card-text">{{patient.designation || 'No designation available'}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Address: {{patient.address || 'No address provided'}}</li>
+        <li class="list-group-item">Mobile: {{patient.mobile}}</li>
+        <li class="list-group-item">Email: {{patient.email}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

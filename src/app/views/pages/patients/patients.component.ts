@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UsersModel} from '../users.model';
 
 @Component({
   selector: 'app-patients',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientsComponent implements OnInit {
 
-  constructor() { }
+  public user: UsersModel = new UsersModel();
+  constructor() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  }
 
   ngOnInit() {
   }

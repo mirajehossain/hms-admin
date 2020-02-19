@@ -33,6 +33,10 @@ import {ThemeModule} from '../../theme/theme.module';
             component: PatientComponent,
           },
           {
+            path: 'reports/:patientId',
+            component: ReportsComponent,
+          },
+          {
             path: 'update/:patientId',
             component: UpdateComponent,
           },

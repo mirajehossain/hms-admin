@@ -9,3 +9,19 @@ export class PatientsModel {
   address?: string;
 }
 
+export class PatientReports {
+  _id: string;
+  date: Date;
+  doctorId: string;
+  patientId: string;
+  historyType: string;
+  symptoms: string;
+  note: string;
+  report: string;
+  test: string;
+  medicine: string;
+  advise: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
