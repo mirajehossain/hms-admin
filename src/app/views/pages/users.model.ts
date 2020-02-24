@@ -6,6 +6,9 @@ export class UsersModel {
   password?: string;
   bloodGroup?: string;
   designation?: string;
+  isDonor?: string;
+  image?: string;
+  gender?: string;
   address?: string;
   userType: string;
 }

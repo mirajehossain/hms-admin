@@ -1,1 +1,87 @@
-<p>profile works!</p>
+<div class="row">
+  <div class="col-xs-12 col-md-3 col-lg-2">
+  </div>
+  <div class="col-xs-12 col-md-6 col-lg-8">
+    <div class="card" >
+      <div class="wrapper" *ngIf="isEdit == true">
+          <div class="avatar-upload">
+            <div class="avatar-edit">
+              <input type='file' id="imageUpload" (change)="uploadIcon($event)" accept="image/*" />
+              <label for="imageUpload"></label>
+            </div>
+            <div class="avatar-preview">
+              <div id="imagePreview" [ngStyle]="{'background-image': 'url('+ user.image+')'}">
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <img class="mt-2 card-img-top rounded-circle doctor-image-class" *ngIf="isEdit == false" [src]="user.image || '/assets/images/patient.png'" style="align-self: center;height: 150px; width: 150px" alt="Card image cap">
+      <div class="card-body">
+        <button class="btn btn-outline-info mr-2" *ngIf="isEdit == false" (click)="isEdit = true">Edit Profile</button>
+        <button class="btn btn-outline-info mr-2" *ngIf="isEdit == true" (click)="updateProfile()">Update</button>
+        <button *ngIf="isEdit == true " (click)="isEdit = false" class="btn btn-outline-danger">Cancel</button>
+      </div>
+      <div class="card-body" *ngIf="isEdit == false">
+        <h5 class="card-title">Name: {{user.name}}</h5>
+        <p class="card-text">Designation: {{user.designation || 'No designation available'}}</p>
+      </div>
+      <ul class="list-group list-group-flush" *ngIf="isEdit == false">
+        <li class="list-group-item">Address: {{user.address || 'No address provided'}}</li>
+        <li class="list-group-item">Mobile: {{user.mobile}}</li>
+        <li class="list-group-item">Email: {{user.email}}</li>
+      </ul>
+
+      <div class="row justify-content-center" *ngIf="isEdit == true">
+        <form class="col-xl-8 col-lg-6 col-md-12 col-sm-10">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label >Name</label>
+              <input type="text" class="form-control"  [(ngModel)]="user.name" name="name" placeholder="Name" >
+            </div>
+            <div class="form-group col-md-6">
+              <label >Email</label>
+              <input type="email" class="form-control" [(ngModel)]="user.email"  name="email"  placeholder="Email">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Mobile</label>
+              <input type="text" class="form-control" [(ngModel)]="user.mobile" name="mobile"  placeholder="Mobile">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" id="inputAddress" [(ngModel)]="user.address" name="address"  placeholder="1234 Main St">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="inputState">Blood Group</label>
+              <select id="inputState"  [(ngModel)]="user.bloodGroup" name='bloodGroup' class="form-control">
+                <option *ngFor="let blood of ['A+', 'A-','B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']" [value]="blood">{{blood}}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputState">Gender</label>
+              <select   [(ngModel)]="user.gender" name="gender" class="form-control">
+                <option *ngFor="let gender of ['MALE', 'FEMALE','OTHER']" [value]="gender">{{gender}}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label >Designation</label>
+              <input type="text" class="form-control"  [(ngModel)]="user.designation"  name="designation" placeholder="Designation">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox"  [(ngModel)]="user.isDonor" name="isDonor">
+              <label class="form-check-label">
+                Is Donor?
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

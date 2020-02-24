@@ -5,6 +5,7 @@ export class PatientsModel {
   mobile: string;
   password: string;
   gender: string;
+  image?: string;
   bloodGroup?: string;
   designation?: string;
   address?: string;

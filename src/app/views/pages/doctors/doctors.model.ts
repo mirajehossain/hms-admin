@@ -6,6 +6,7 @@ export class DoctorsModel {
   password: string;
   bloodGroup?: string;
   gender: string;
+  image?: string;
   designation?: string;
   address?: string;
 }

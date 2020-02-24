@@ -5,16 +5,21 @@ import {HttpBackend, HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/
 import {catchError, map} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import {DoctorsModel} from '../../views/pages/doctors/doctors.model';
+import {UsersModel} from '../../views/pages/users.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorService {
 
+  private customHttpClient: HttpClient;
+
   constructor(
     private http: HttpClient,
     private handler: HttpBackend,
-    ) { }
+    ) {
+    this.customHttpClient = new HttpClient(handler);
+  }
 
   public GetDoctors(): Observable<any> {
     const endPoint = '/v1/users/doctor';
@@ -61,7 +66,44 @@ export class DoctorService {
       .pipe(catchError(this.handleError));
   }
 
+public UpdateProfile(user: UsersModel): Observable<any> {
+    const endPoint = '/v1/users/update-profile/'+ user._id;
+    const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint;
+    console.log('url: ', endPoint);
+    return this.http.patch<UsersModel>(url, user)
+      .pipe(map(item => item))
+      .pipe(catchError(this.handleError));
+  }
 
+
+ public GetUserProfile(userId): Observable<any> {
+    const endPoint = '/v1/users/get-profile/' + userId;
+    const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint;
+    console.log('url: ', endPoint);
+    return this.http.get<UsersModel>(url)
+      .pipe(map(item => item))
+      .pipe(catchError(this.handleError));
+  }
+
+
+  public UploadImage(userId, icon: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('image', icon, icon.name);
+    const endPoint = '/v1/users/upload-image/' + userId;
+    const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint;
+
+    console.log(url);
+    const user = JSON.parse(localStorage.getItem('user'));
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        Authorization: 'Bearer ' + user.accessToken,
+      })
+    };
+    return this.customHttpClient.post<any>(url, formData, httpOptions)
+      .pipe(map(item => item.data))
+      .pipe(catchError(this.handleError));
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
