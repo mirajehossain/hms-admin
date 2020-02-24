@@ -25,13 +25,15 @@
         <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <div class="ml-sm-2" style="color: mediumvioletred">
-      <fa-icon [icon]="faUserCircle" size="3x" spin="spin"></fa-icon>
-<!--      <fa-icon [icon]="faUserCircle" size="3x" pulse="pulse"></fa-icon>-->
+<!--    <form class="form-inline my-2 my-lg-0">-->
+<!--      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--    </form>-->
+<!--    <div class="ml-sm-2" style="color: mediumvioletred">-->
+<!--      <fa-icon [icon]="faUserCircle" size="3x" spin="spin"></fa-icon>-->
+<!--    </div>-->
+    <div class="ml-sm-2 navbar-nav nav-item" style="color: mediumvioletred;">
+      <a class="nav-link" (click)="logout()" > Logout</a>
     </div>
   </div>
 </nav>

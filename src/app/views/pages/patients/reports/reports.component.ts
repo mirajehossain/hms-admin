@@ -27,6 +27,8 @@ export class ReportsComponent implements OnInit {
     });
     if (this.user.userType === 'DOCTOR') {
       this.getPatientReportByDoctor(this.user._id, this.patientId);
+    } else if (this.user.userType === 'ADMIN' || this.user.userType === 'PATIENT' ) {
+      this.getPatientReportById(this.patientId);
     }
   }
 
@@ -40,6 +42,16 @@ export class ReportsComponent implements OnInit {
 
   getPatientReportByDoctor(doctorId, patientId) {
     this.doctorApiService.GetPatientReportByDoctor(doctorId, patientId)
+      .subscribe(response => {
+        console.log(response);
+        if (response.success) {
+          this.patientReports = response.data;
+        }
+      }, error => { console.log(error); });
+  }
+
+  getPatientReportById(patientId) {
+    this.doctorApiService.GetPatientReportById(patientId)
       .subscribe(response => {
         console.log(response);
         if (response.success) {

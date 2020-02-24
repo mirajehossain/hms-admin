@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" *ngIf="router.url === '/patients/list' || router.url === '/patients/add'">
   <li class="nav-item">
     <a class="nav-link" routerLink="/patients/list" routerLinkActive="active">Patient Lists</a>
   </li>

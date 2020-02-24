@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-md-6 col-lg-8">
     <div class="row mt-2">
       <div class="col-xs-12 col-md-12 col-lg-12">
-        <h5 class="text-center">Last 1 week</h5>
+        <h5 class="text-center">Resent visits</h5>
       </div>
       <div class="col-xs-12 col-md-12 col-lg-12">
         <table class="table">
@@ -14,6 +14,7 @@
           </tr>
           </thead>
           <tbody>
+          <tr *ngIf="doctorReports.recentConsult.length == 0" ><td>No Reports available</td></tr>
           <tr *ngFor="let rConsult of doctorReports.recentConsult">
             <td>{{rConsult.date | date: 'dd MMM, yyyy'}}</td>
             <td>{{rConsult.historyType}}</td>
@@ -39,19 +40,19 @@
           [yAxisLabel]="yAxisLabel">
         </ngx-charts-bar-horizontal>
       </div>
-      <div class="col-xs-12 col-md-3 col-lg-6">
-        <ngx-charts-pie-chart
-          [view]="view1"
-          [scheme]="colorScheme1"
-          [results]="single1"
-          [gradient]="gradient1"
-          [legend]="showLegend1"
-          [legendPosition]="legendPosition1"
-          [labels]="showLabels1"
-          [doughnut]="isDoughnut1"
-        >
-        </ngx-charts-pie-chart>
-      </div>
+<!--      <div class="col-xs-12 col-md-3 col-lg-6">-->
+<!--        <ngx-charts-pie-chart-->
+<!--          [view]="view1"-->
+<!--          [scheme]="colorScheme1"-->
+<!--          [results]="single1"-->
+<!--          [gradient]="gradient1"-->
+<!--          [legend]="showLegend1"-->
+<!--          [legendPosition]="legendPosition1"-->
+<!--          [labels]="showLabels1"-->
+<!--          [doughnut]="isDoughnut1"-->
+<!--        >-->
+<!--        </ngx-charts-pie-chart>-->
+<!--      </div>-->
     </div>
   </div>
   <div class="col-xs-12 col-md-6 col-lg-4">

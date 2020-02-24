@@ -34,6 +34,15 @@ export class DoctorService {
       .pipe(catchError(this.handleError));
   }
 
+  public GetPatientReportById(patientId): Observable<any> {
+    const endPoint = `/v1/users/patient/get-patient-report/${patientId}`;
+    const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint;
+    console.log('url: ' + endPoint);
+    return this.http.get<any>(url)
+      .pipe(map(item => item))
+      .pipe(catchError(this.handleError));
+  }
+
   public GetDoctorReportById(doctorId): Observable<any> {
     const endPoint = `/v1/users/doctor/get-doctor-report/${doctorId}`;
     const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint;
