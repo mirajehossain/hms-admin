@@ -4,8 +4,9 @@ import {LoginModel} from '../../views/pages/auth/auth.model';
 import {HttpBackend, HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
-import {DoctorsModel} from '../../views/pages/doctors/doctors.model';
+import {DoctorsModel, DoctorsReportModel} from '../../views/pages/doctors/doctors.model';
 import {UsersModel} from '../../views/pages/users.model';
+import {PatientReports} from '../../views/pages/patients/patients.model';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,15 @@ export class DoctorService {
       .pipe(catchError(this.handleError));
   }
 
+ public AddHistory(history: PatientReports): Observable<any> {
+    const endPoint = '/v1/users/doctor/consult';
+    const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint;
+    console.log('url: ', endPoint);
+    return this.http.post<PatientReports>(url, history)
+      .pipe(map(item => item))
+      .pipe(catchError(this.handleError));
+  }
+
  public CreateDoctor(user: DoctorsModel): Observable<any> {
     const endPoint = '/v1/users/doctor';
     const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint;
@@ -66,7 +76,8 @@ export class DoctorService {
       .pipe(catchError(this.handleError));
   }
 
-public UpdateProfile(user: UsersModel): Observable<any> {
+
+  public UpdateProfile(user: UsersModel): Observable<any> {
     const endPoint = '/v1/users/update-profile/'+ user._id;
     const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint;
     console.log('url: ', endPoint);

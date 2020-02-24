@@ -4,6 +4,7 @@ import {AppComponent} from './app.component';
 import {AuthGuard} from './core/auth.guard';
 import {BaseComponent} from './views/theme/base/base.component';
 import {ProfileComponent} from './views/pages/profile/profile.component';
+import {ConsultPatientComponent} from './views/pages/consult-patient/consult-patient.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+      },
+      {
+        path: 'consult-patient',
+        component: ConsultPatientComponent,
       },
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       {path: '**', redirectTo: 'dashboard', pathMatch: 'full'}

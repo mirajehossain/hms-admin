@@ -15,8 +15,11 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/patients"  routerLinkActive="active">Patients <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="user.userType == 'ADMIN'" routerLink="/reports" routerLinkActive="active">Reports <span class="sr-only">(current)</span></a>
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" *ngIf="user.userType == 'ADMIN'" routerLink="/reports" routerLinkActive="active">Reports <span class="sr-only">(current)</span></a>-->
+<!--      </li>-->
+      <li class="nav-item" *ngIf="user.userType === 'DOCTOR'">
+        <a class="nav-link" routerLink="/consult-patient">Consult <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/blood-bank">Blood Bank <span class="sr-only">(current)</span></a>
@@ -29,11 +32,12 @@
 <!--      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
 <!--      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
 <!--    </form>-->
-<!--    <div class="ml-sm-2" style="color: mediumvioletred">-->
+<!--    <div class="ml-sm-2" style="color: mediumvioletred" routerLink="/profile">-->
 <!--      <fa-icon [icon]="faUserCircle" size="3x" spin="spin"></fa-icon>-->
 <!--    </div>-->
+
     <div class="ml-sm-2 navbar-nav nav-item" style="color: mediumvioletred;">
-      <a class="nav-link" (click)="logout()" > Logout</a>
+      <button class="btn btn-outline-danger" (click)="logout()" > Logout</button>
     </div>
   </div>
 </nav>

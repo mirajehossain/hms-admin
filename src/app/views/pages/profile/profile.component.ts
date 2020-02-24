@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
       // tslint:disable-next-line:no-shadowed-variable
-      reader.onload = (event) => { // called once readAsDataURL is completed
+      reader.onload = (event: any) => { // called once readAsDataURL is completed
         this.user.image = event.target.result;
       };
       const file = event.target.files[0];

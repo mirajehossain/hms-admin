@@ -12,18 +12,18 @@ export class PatientsModel {
 }
 
 export class PatientReports {
-  _id: string;
-  date: Date;
+  _id?: string;
+  date?: Date;
   doctorId: string;
   patientId: string;
   historyType: string;
   symptoms: string;
-  note: string;
-  report: string;
-  test: string;
-  medicine: string;
-  advise: string;
-  createdAt: Date;
-  updatedAt: Date;
+  note?: string;
+  report?: string;
+  test?: string;
+  medicine?: string;
+  advise?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 

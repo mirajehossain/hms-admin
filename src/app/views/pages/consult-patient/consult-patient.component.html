@@ -1,0 +1,83 @@
+<div>
+  <h3 class="text-center ">
+          <small class="text-muted">Patients History Form</small>
+  </h3>
+  <div class="row justify-content-center mb-2">
+    <form class="col-xl-8 col-lg-6 col-md-8 col-sm-10" [formGroup]="consultForm">
+      <div class="col-md-12">
+        <div class="text-center" *ngIf="hasError">
+          <strong style="color: red">{{errMessage}}</strong>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label >Doctor</label>
+          <input type="text" readonly="readonly" class="form-control" name="doctorId" [value]="user.name" formControlName="doctorId" placeholder="Doctor" >
+          <div *ngIf="isControlHasError('doctorId','required')">
+            <strong style="color: red">doctor is required</strong>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label >Patient</label>
+          <select formControlName="patientId" class="form-control" >
+            <option *ngFor="let patient of patients" [value]="patient._id">{{patient.name}}</option>
+          </select>
+          <div *ngIf="isControlHasError('patientId','required')">
+            <strong style="color: red">patient is required</strong>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label >History Type</label>
+          <select formControlName="historyType" class="form-control">
+            <option *ngFor="let history of ['First Appointment', 'Review Previous Report', 'Routine checkup', 'Emergency checkup']" [value]="history">{{history}}</option>
+          </select>
+          <div *ngIf="isControlHasError('historyType','required')">
+            <strong style="color: red">historyType is required</strong>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Symptoms</label>
+          <textarea type="text" class="form-control" name="symptoms" formControlName="symptoms" placeholder="symptoms"></textarea>
+          <div *ngIf="isControlHasError('symptoms','required')">
+            <strong style="color: red">symptoms is required</strong>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label >Test</label>
+          <textarea type="text" class="form-control" name="test" formControlName="test" placeholder="test"></textarea>
+          <div *ngIf="isControlHasError('test','required')">
+            <strong style="color: red">test is required</strong>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label >Report</label>
+          <textarea type="text" class="form-control" name="report" formControlName="report" placeholder="report"></textarea>
+          <div *ngIf="isControlHasError('report','required')">
+            <strong style="color: red">report is required</strong>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label >Note</label>
+          <textarea type="text" class="form-control" name="note" formControlName="note" placeholder="note"></textarea>
+          <div *ngIf="isControlHasError('note','required')">
+            <strong style="color: red">note is required</strong>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label >Medicine</label>
+          <textarea type="text" class="form-control" name="medicine" formControlName="medicine" placeholder="medicine"></textarea>
+        </div>
+        <div class="form-group col-md-12">
+          <label >Advise</label>
+          <textarea type="text" class="form-control" name="advise" formControlName="advise" placeholder="advise"></textarea>
+        </div>
+
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!consultForm.valid" (click)="addHistory(consultForm.value)">Add History</button>
+    </form>
+  </div>
+
+</div>

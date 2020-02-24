@@ -26,7 +26,7 @@ export class PatientService {
   }
 
   public GetPatientsByDoctor(doctorId?: string): Observable<any> {
-    const endPoint = '/v1/users/doctor/get-patients/'+ doctorId;
+    const endPoint = '/v1/users/doctor/get-patients/' + doctorId;
     const url = environment.production ? environment.prodHost + endPoint : environment.localhost + endPoint;
     return this.http.get<PatientsModel>(url)
       .pipe(map(item => item))
