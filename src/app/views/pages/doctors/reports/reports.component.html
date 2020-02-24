@@ -1,1 +1,71 @@
-<p>reports works!</p>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-lg-8">
+    <div class="row mt-2">
+      <div class="col-xs-12 col-md-12 col-lg-12">
+        <h5 class="text-center">Last 1 week</h5>
+      </div>
+      <div class="col-xs-12 col-md-12 col-lg-12">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Type</th>
+            <th scope="col">Patient name</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let rConsult of doctorReports.recentConsult">
+            <td>{{rConsult.date | date: 'dd MMM, yyyy'}}</td>
+            <td>{{rConsult.historyType}}</td>
+            <td>{{rConsult.patient.name}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row kt-content">
+      <div class="col-xs-12 col-md-3 col-lg-6">
+        <ngx-charts-bar-horizontal
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="single"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel">
+        </ngx-charts-bar-horizontal>
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-6">
+        <ngx-charts-pie-chart
+          [view]="view1"
+          [scheme]="colorScheme1"
+          [results]="single1"
+          [gradient]="gradient1"
+          [legend]="showLegend1"
+          [legendPosition]="legendPosition1"
+          [labels]="showLabels1"
+          [doughnut]="isDoughnut1"
+        >
+        </ngx-charts-pie-chart>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6 col-lg-4">
+    <div class="card float-right" style="width: 18rem;">
+      <img class="mt-2 card-img-top rounded-circle doctor-image-class" src="/assets/images/doctor.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{doctor.name}}</h5>
+        <p class="card-text">{{doctor.designation || 'No designation available'}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Address: {{doctor.address || 'No address provided'}}</li>
+        <li class="list-group-item">Mobile: {{doctor.mobile}}</li>
+        <li class="list-group-item">Email: {{doctor.email}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

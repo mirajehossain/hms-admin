@@ -67,6 +67,9 @@ export class AddComponent implements OnInit {
       bloodGroup: ['', Validators.compose([
       ])],
 
+      gender: ['', Validators.compose([
+      ])],
+
       designation: ['', Validators.compose([
       ])],
       isDonor: ['', Validators.compose([

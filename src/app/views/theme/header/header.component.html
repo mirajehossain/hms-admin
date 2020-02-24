@@ -16,10 +16,13 @@
         <a class="nav-link" routerLink="/patients"  routerLinkActive="active">Patients <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/reports" routerLinkActive="active">Reports <span class="sr-only">(current)</span></a>
+        <a class="nav-link" *ngIf="user.userType == 'ADMIN'" routerLink="/reports" routerLinkActive="active">Reports <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Blood Bank <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

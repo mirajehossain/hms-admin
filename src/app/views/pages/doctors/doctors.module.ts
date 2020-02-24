@@ -9,16 +9,14 @@ import { ReportsComponent } from './reports/reports.component';
 import { AddComponent } from './add/add.component';
 import {ThemeModule} from '../../theme/theme.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {TokenInterceptorService} from '../../../core/services/token-interceptor.service';
-import {DoctorService} from '../../../core/services/doctor.service';
-
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 
 @NgModule({
   declarations: [DoctorsComponent, ListsComponent, UpdateComponent, DoctorComponent, ReportsComponent, AddComponent],
   imports: [
     CommonModule,
+    NgxChartsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -34,7 +32,7 @@ import {DoctorService} from '../../../core/services/doctor.service';
           },
           {
             path: 'details/:doctorId',
-            component: DoctorComponent,
+            component: ReportsComponent,
           },
           {
             path: 'update/:doctorId',

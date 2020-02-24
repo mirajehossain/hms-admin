@@ -12,7 +12,7 @@
         <li class="list-group-item">{{doctor.email}}</li>
       </ul>
       <div class="card-body">
-        <a [routerLink]="'/doctors/details/'+doctor._id" class="card-link">Details</a>
+        <a (click)="doctorReport(doctor)"  class="card-link">Details</a>
         <a href="#" class="card-link">Another link</a>
       </div>
     </div>

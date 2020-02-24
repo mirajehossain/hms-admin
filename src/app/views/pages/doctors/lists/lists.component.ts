@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DoctorService} from '../../../../core/services/doctor.service';
 import {Router} from '@angular/router';
 import {DoctorsModel} from '../doctors.model';
+import {DataService} from '../../../../core/services/data.service';
 
 @Component({
   selector: 'app-lists',
@@ -15,6 +16,7 @@ export class ListsComponent implements OnInit {
   public errMessage: string;
 
   constructor(
+    private dataService: DataService,
     private doctorApiService: DoctorService,
     private router: Router,
   ) { }
@@ -34,6 +36,12 @@ export class ListsComponent implements OnInit {
         this.hasError = true;
         this.errMessage = error;
       });
+  }
+
+
+  doctorReport(doctor) {
+    this.dataService.updateDoctorProfileData(doctor);
+    this.router.navigate(['/doctors/details/' + doctor._id]);
   }
 
 }
