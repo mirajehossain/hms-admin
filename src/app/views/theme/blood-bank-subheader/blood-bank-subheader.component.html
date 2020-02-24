@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs" >
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/blood-bank/donors" routerLinkActive="active">Donors</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" *ngIf="user.userType=='ADMIN'" routerLink="/blood-bank/add-donor" routerLinkActive="active">Add new Donor</a>
+  </li>
+</ul>

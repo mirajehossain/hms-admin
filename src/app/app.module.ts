@@ -8,6 +8,7 @@ import {ThemeModule} from './views/theme/theme.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {TokenInterceptorService} from './core/services/token-interceptor.service';
+import {PagesModule} from './views/pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {TokenInterceptorService} from './core/services/token-interceptor.service
     AppRoutingModule,
     HttpClientModule,
     ThemeModule,
+    PagesModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
   ],

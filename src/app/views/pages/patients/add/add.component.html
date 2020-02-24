@@ -46,12 +46,22 @@
         <input type="text" class="form-control" id="inputAddress" name="address" formControlName="address" placeholder="1234 Main St">
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-3">
           <label for="inputState">Blood Group</label>
           <select id="inputState" formControlName="bloodGroup" class="form-control">
             <option *ngFor="let blood of ['A+', 'A-','B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']" [value]="blood">{{blood}}</option>
           </select>
         </div>
+        <div class="form-group col-md-3">
+          <label for="inputState">Gender</label>
+          <select  formControlName="gender" class="form-control">
+            <option *ngFor="let gender of ['MALE', 'FEMALE','OTHER']" [value]="gender">{{gender}}</option>
+          </select>
+          <div *ngIf="isControlHasError('gender','required')">
+            <strong style="color: red">gender is required</strong>
+          </div>
+        </div>
+
         <div class="form-group col-md-6">
           <label >Designation</label>
           <input type="text" class="form-control" name="designation" formControlName="designation" placeholder="Designation">

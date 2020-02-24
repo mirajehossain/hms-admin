@@ -8,11 +8,12 @@ import {BaseComponent} from './base/base.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DoctorSubheaderComponent } from './doctor-subheader/doctor-subheader.component';
 import { PatientSubheaderComponent } from './patient-subheader/patient-subheader.component';
+import { BloodBankSubheaderComponent } from './blood-bank-subheader/blood-bank-subheader.component';
 
 
 
 @NgModule({
-  declarations: [BaseComponent, HeaderComponent, FooterComponent, AsideComponent, DoctorSubheaderComponent, PatientSubheaderComponent],
+  declarations: [BaseComponent, HeaderComponent, FooterComponent, AsideComponent, DoctorSubheaderComponent, PatientSubheaderComponent, BloodBankSubheaderComponent],
   exports: [
     DoctorSubheaderComponent,
     PatientSubheaderComponent

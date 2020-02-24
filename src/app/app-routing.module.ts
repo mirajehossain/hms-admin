@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {AppComponent} from './app.component';
 import {AuthGuard} from './core/auth.guard';
 import {BaseComponent} from './views/theme/base/base.component';
+import {ProfileComponent} from './views/pages/profile/profile.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,14 @@ const routes: Routes = [
       {
         path: 'patients',
         loadChildren: () => import('src/app/views/pages/patients/patients.module').then(m => m.PatientsModule)
+      },
+      {
+        path: 'blood-bank',
+        loadChildren: () => import('src/app/views/pages/blood-bank/blood-bank.module').then(m => m.BloodBankModule)
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       {path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
