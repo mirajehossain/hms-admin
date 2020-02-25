@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: false,
+  localhost: 'http://localhost:8000/api',
+  prodHost: 'https://hmsapi.sharminmoon.com/api'
+
 };

@@ -9,6 +9,7 @@ import {RouterModule} from '@angular/router';
 import {AddComponent} from './add/add.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ThemeModule} from '../../theme/theme.module';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import {ThemeModule} from '../../theme/theme.module';
     ]),
     ReactiveFormsModule,
     ThemeModule,
+    NgxSpinnerModule,
   ]
 })
 export class PatientsModule { }

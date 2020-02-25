@@ -3,6 +3,7 @@ import {DoctorService} from '../../../../core/services/doctor.service';
 import {Router} from '@angular/router';
 import {DoctorsModel} from '../doctors.model';
 import {DataService} from '../../../../core/services/data.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-lists',
@@ -19,6 +20,8 @@ export class ListsComponent implements OnInit {
     private dataService: DataService,
     private doctorApiService: DoctorService,
     private router: Router,
+    public spinner: NgxSpinnerService,
+
   ) { }
 
   ngOnInit() {
@@ -26,13 +29,16 @@ export class ListsComponent implements OnInit {
   }
 
   getDoctors() {
+    this.spinner.show();
     this.doctorApiService.GetDoctors()
       .subscribe(response => {
+        this.spinner.hide();
         console.log(response);
         if (response.success) {
           this.doctors = response.data;
         }
       }, error => {
+        this.spinner.hide();
         this.hasError = true;
         this.errMessage = error;
       });

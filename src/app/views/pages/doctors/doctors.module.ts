@@ -10,6 +10,7 @@ import { AddComponent } from './add/add.component';
 import {ThemeModule} from '../../theme/theme.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
     ]),
     ThemeModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
   ],
   providers: [
 

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {LoginModel} from '../auth.model';
 import {AuthService} from '../../../../core/services/auth.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    public spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
+    this.spinner.show();
     const controls = this.loginForm.controls;
     const authData = {
       email: controls.email.value,
@@ -35,6 +38,7 @@ export class LoginComponent implements OnInit {
     console.log(authData);
     this.authService.Login(authData)
       .subscribe(response => {
+        this.spinner.hide();
         console.log(response);
         if (!response.success) {
           this.hasError = true;
@@ -44,6 +48,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         }
       }, error => {
+        this.spinner.hide();
         console.log(error);
         this.hasError = true;
         this.errMessage = error.message;

@@ -16,7 +16,8 @@ import { BloodBankSubheaderComponent } from './blood-bank-subheader/blood-bank-s
   declarations: [BaseComponent, HeaderComponent, FooterComponent, AsideComponent, DoctorSubheaderComponent, PatientSubheaderComponent, BloodBankSubheaderComponent],
   exports: [
     DoctorSubheaderComponent,
-    PatientSubheaderComponent
+    PatientSubheaderComponent,
+    BloodBankSubheaderComponent
   ],
   imports: [
     CommonModule,

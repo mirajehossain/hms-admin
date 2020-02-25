@@ -2,29 +2,29 @@ import { Component, OnInit } from '@angular/core';
 export let single = [
   {
     name: 'Saturday',
-    value: 8940000
+    value: 250
   },
   {
     name: 'Sunday',
-    value: 5000000
+    value: 334
   },
   {
     name: 'Monday',
-    value: 7200000
+    value: 542
   }
 ];
 export let single1 = [
   {
     name: 'Doctor',
-    value: 8940000
+    value: 154
   },
   {
     name: 'Patient',
-    value: 5000000
+    value: 2030
   },
   {
     name: 'Serve Patient',
-    value: 7200000
+    value: 3244
   },
 ];
 

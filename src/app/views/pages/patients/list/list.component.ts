@@ -4,6 +4,7 @@ import {PatientService} from '../../../../core/services/patient.service';
 import {PatientsModel} from '../patients.model';
 import {UsersModel} from '../../users.model';
 import {DataService} from '../../../../core/services/data.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-list',
@@ -22,6 +23,7 @@ export class ListComponent implements OnInit {
     private patientApiService: PatientService,
     private dataService: DataService,
     private router: Router,
+    public spinner: NgxSpinnerService,
   ) {
     this.user = JSON.parse(localStorage.getItem('user'));
     if (this.user.userType === 'ADMIN') {
@@ -35,13 +37,16 @@ export class ListComponent implements OnInit {
   }
 
   getPatients() {
+    this.spinner.show();
     this.patientApiService.GetPatients()
       .subscribe(response => {
+        this.spinner.hide();
         console.log('getPatients: ', response);
         if (response.success) {
           this.patients = response.data;
         }
       }, error => {
+        this.spinner.hide();
         this.hasError = true;
         this.errMessage = error;
       });

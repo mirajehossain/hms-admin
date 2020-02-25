@@ -65,18 +65,18 @@ export class ConsultPatientComponent implements OnInit {
       symptoms: ['', Validators.compose([
         Validators.required
       ])],
-      test: ['', Validators.compose([
+      test: ['N/A', Validators.compose([
       ])],
 
-      report: ['', Validators.compose([
+      report: ['N/A', Validators.compose([
       ])],
 
-      note: ['', Validators.compose([
+      note: ['N/A', Validators.compose([
       ])],
 
-      medicine: ['', Validators.compose([
+      medicine: ['N/A', Validators.compose([
       ])],
-      advise: ['', Validators.compose([
+      advise: ['N/A', Validators.compose([
       ])],
     });
   }

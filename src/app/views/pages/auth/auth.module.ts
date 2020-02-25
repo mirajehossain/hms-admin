@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AuthComponent } from './auth.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 
@@ -12,6 +13,7 @@ import { AuthComponent } from './auth.component';
   declarations: [LoginComponent, ForgotPasswordComponent, AuthComponent],
   imports: [
     CommonModule,
+    NgxSpinnerModule,
     RouterModule.forChild([
       {
         path: '',
